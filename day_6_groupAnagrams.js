@@ -27,22 +27,18 @@ var groupAnagrams = function(strs) {
         for (let j = 0; j < strs[i].length; j++) {
             (lettersObject[strs[i][j]]) ? lettersObject[strs[i][j]]++: lettersObject[strs[i][j]] = 1;
         }
-        my_dict[strs[i]] = lettersObject;
+        my_dict[[i]] = lettersObject;
     }
-    // console.log(my_dict)
-    for (let k = 0; k < Object.keys(my_dict).length; k++) {
-        let currentValues = my_dict[Object.keys(my_dict)[k]]
-        let anagramArray = [];
-        anagramArray.push(Object.keys(my_dict)[k])
-        for (let l = 0; l < Object.keys(my_dict).length; l++) {
-            if (my_dict[Object.keys(my_dict)[k]] === my_dict[Object.keys(my_dict)[l]]) {
-                anagramArray.push(Object.keys(my_dict)[l])
-            }
-        }
-        resultArrays.push(anagramArray);
-    }
+    let anagramFound = true;
+    Object.keys(my_dict[0]).forEach(e =>{
+        if(my_dict[0][e] !== my_dict[3][e]) {
+            anagramFound = false;
+        } 
+    })
+    resultArrays.push([Object.keys(my_dict[0]).join(''), Object.keys(my_dict[3]).join('')])
+    console.log(resultArrays)
 
-    console.log(resultArrays);
+    
 };
 
 groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]);
