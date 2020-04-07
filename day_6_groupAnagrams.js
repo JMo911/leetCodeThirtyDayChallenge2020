@@ -61,30 +61,100 @@
 
 // groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]);
 
+// function checkMatch (word, idx) {
+//     if(word === )
+// }
+
+
+
+
+
+// idx 0 ["eat", "tea", "tan", "ate", "nat", "bat"];
+// if (i === 0 push)
+// if ( sort/ spilt does it match) 
+// push
+// splice at current, 
+
+// idx 0 ["tan", "nat", "bat"]
+// idx 0 ["bat"]
+
+// input.forEach(w => {
+//   const sortedAssortedArray = w.split('').sort().join('');
+//   sortedAssortedArray.filte
+// })
+
+
+
+
+//PAIR W/ JACK
+const input = ["eat", "tea", "tan", "ate", "nat", "bat"];
+var groupAnagrams = function(strs, r) {
+  const results = r ? r : [];
+  let group = [];
+  if (strs.length === 0) {
+      return [['', '']];
+  }
+  if ( strs.length === 1) {
+      results.push([strs[0]])
+      return results
+  }
+      for (let i = 1; i < strs.length; i++) {
+          if (!group.length) {
+              group.push(strs[0])  
+          }
+          var toMatch = strs.length > 1 ? strs[0].split('').sort().join('') : strs[0];
+          if (strs[i].split('').sort().join('') === toMatch) {
+              group.push(strs[i]);
+          } 
+      }
+  results.push(group);
+  const theNewStrs = strs.filter(item => !group.includes(item))
+  return groupAnagrams(theNewStrs, results);
+}
+
+const winner = groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]);
+console.log('the winner', winner);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 
 //ATTEMPT 2 - SORT FIRST
-var groupAnagrams = function(strs) {
-    // const my_dict = {};
-    let sortedArray = [];
-    for (let i = 0; i < strs.length; i++) {
-        sortedArray.push(strs[i].split('').sort().join(''))
-    }
-    let matches = [];
-    for (let j = 0; j < sortedArray.length; j++) {
-        for (let k = 0; k < sortedArray.length; k++) {
-            //return index positions of all matches
-            if (sortedArray[j] === sortedArray[k]) {
-                matches.push([j, k])
-            }
-        }
+// var groupAnagrams = function(strs) {
+//     // const my_dict = {};
+//     let sortedArray = [];
+//     for (let i = 0; i < strs.length; i++) {
+//         sortedArray.push(strs[i].split('').sort().join(''))
+//     }
+//     // let matches = [];
+//     for (let j = 0; j < sortedArray.length; j++) {
+//         for (let k = 0; k < sortedArray.length; k++) {
+//             //return index positions of all matches
+//             if (sortedArray[j] === sortedArray[k]) {
+//                 matches.push([j, k])
+//             }
+//         }
         
-    }
-    console.log(matches)
+//     }
+//     // console.log(matches)
 
-}
+// }
 
-groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]);
+// groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]);
