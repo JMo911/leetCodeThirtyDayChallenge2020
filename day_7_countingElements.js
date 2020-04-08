@@ -37,5 +37,20 @@
 
 
 var countElements = function(arr) {
-    
+    const sortedArray = arr.sort((a, b) => {return a - b});
+    console.log(sortedArray)
+    let count = 0;
+
+    for (let i = 0; i < sortedArray.length; i++) {
+        let toMatch = sortedArray[i] + 1;
+        for (let j = i + 1; j < sortedArray.length; j++) {
+            if (sortedArray[j] === toMatch) {
+                count++;
+                break;
+            }
+        }
+    }
+    return count;
 };
+
+console.log(countElements([4,10,11,11,1,9,6,2,4,5,8]));
