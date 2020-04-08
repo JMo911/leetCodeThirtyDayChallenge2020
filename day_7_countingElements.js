@@ -38,7 +38,6 @@
 
 var countElements = function(arr) {
     const sortedArray = arr.sort((a, b) => {return a - b});
-    console.log(sortedArray)
     let count = 0;
 
     for (let i = 0; i < sortedArray.length; i++) {
